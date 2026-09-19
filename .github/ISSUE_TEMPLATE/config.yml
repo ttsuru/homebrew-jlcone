@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Problems with the JLCONE app itself
+    url: https://jlcpcb.com/help/contact
+    about: Login, quoting, ordering or other in-app issues belong to JLCPCB support. This tap only packages the official installer.

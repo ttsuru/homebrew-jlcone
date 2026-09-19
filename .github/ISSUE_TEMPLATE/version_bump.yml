@@ -1,0 +1,21 @@
+name: New upstream version
+description: A newer JLCONE release is available and the autobump workflow has not picked it up
+labels: [bump]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "1.0.72"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Download URL
+      placeholder: https://rs.jlcone.com/static/APP/app_version/jlcone-1.0.72-arm64.dmg
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Changes to the minimum macOS version, bundle identifier, file naming, etc.

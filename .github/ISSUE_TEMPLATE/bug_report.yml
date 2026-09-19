@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a problem caused by this tap (the cask), not by JLCONE itself
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This tap only handles downloading, installing and removing the official JLCONE app.
+        Problems inside the app (login, quoting, orders, Gerber viewer, ...) must go to JLCPCB support.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and output
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: brew config
+      description: Paste the output of `brew config`
+      render: shell
+    validations:
+      required: true
