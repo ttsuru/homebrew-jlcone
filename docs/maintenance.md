@@ -65,7 +65,7 @@ outside the control of this tap; the cask itself downloads over HTTPS and is che
 | `depends_on :macos` | The real minimum is macOS 11, which is older than anything Homebrew still supports, so `brew style` rejects an explicit `macos: :big_sur` as redundant |
 | `uninstall quit:` | Quits the app by bundle identifier before removal |
 | `uninstall login_item:` | Removes the login item the "auto-start" setting may have created |
-| `zap trash:` | Standard Electron locations derived from the bundle identifier, the `package.json` name and `updaterCacheDirName`. A first launch of 1.0.71 was observed to create `~/Library/Application Support/jlcone` and `~/Library/Preferences/com.jlcpcb.www.plist`; the remaining paths (caches, ShipIt, HTTP storage, saved state, logs) come from static analysis and only appear after longer use or an in-app update, so re-check them on a machine where the app has been used (see below) |
+| `zap trash:` | Only paths with evidence. Launching and quitting 1.0.71 was observed to create `~/Library/Application Support/jlcone` and `~/Library/Preferences/com.jlcpcb.www.plist`, and nothing else under `~/Library`. `~/Library/Caches/jlcone-updater` is the `updaterCacheDirName` from `app-update.yml` and `~/Library/Caches/com.jlcpcb.www.ShipIt` is the Squirrel.Mac cache for the bundle identifier; both only appear once an in-app update is downloaded. Generic Electron guesses (`Caches/com.jlcpcb.www`, `HTTPStorages`, `Saved Application State`) were not created, and the app has no file logging, so they are left out. Re-check on a machine where the app has been used (see below) |
 
 ## Checklist for a new release
 

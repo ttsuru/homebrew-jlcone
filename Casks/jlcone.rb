@@ -30,12 +30,8 @@ cask "jlcone" do
 
   zap trash: [
     "~/Library/Application Support/jlcone",
-    "~/Library/Caches/com.jlcpcb.www",
     "~/Library/Caches/com.jlcpcb.www.ShipIt",
     "~/Library/Caches/jlcone-updater",
-    "~/Library/HTTPStorages/com.jlcpcb.www",
-    "~/Library/Logs/jlcone",
     "~/Library/Preferences/com.jlcpcb.www.plist",
-    "~/Library/Saved Application State/com.jlcpcb.www.savedState",
   ]
 end
