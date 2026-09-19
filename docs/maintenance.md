@@ -65,7 +65,7 @@ outside the control of this tap; the cask itself downloads over HTTPS and is che
 | `depends_on :macos` | The real minimum is macOS 11, which is older than anything Homebrew still supports, so `brew style` rejects an explicit `macos: :big_sur` as redundant |
 | `uninstall quit:` | Quits the app by bundle identifier before removal |
 | `uninstall login_item:` | Removes the login item the "auto-start" setting may have created |
-| `zap trash:` | Standard Electron locations derived from the bundle identifier, the `package.json` name and `updaterCacheDirName`. They come from static analysis of the bundle; re-check them against a machine where the app has been used (see below) |
+| `zap trash:` | Standard Electron locations derived from the bundle identifier, the `package.json` name and `updaterCacheDirName`. A first launch of 1.0.71 was observed to create `~/Library/Application Support/jlcone` and `~/Library/Preferences/com.jlcpcb.www.plist`; the remaining paths (caches, ShipIt, HTTP storage, saved state, logs) come from static analysis and only appear after longer use or an in-app update, so re-check them on a machine where the app has been used (see below) |
 
 ## Checklist for a new release
 
@@ -102,6 +102,11 @@ open -a JLCONE
 # 5. After using the app, check that `zap` still covers everything it creates
 ls -d ~/Library/{"Application Support",Caches,HTTPStorages,Logs,Preferences,"Saved Application State"}/*{jlc,JLC}* 2>/dev/null
 ```
+
+If `open -a JLCONE` exits immediately with no window, check the shell for `ELECTRON_RUN_AS_NODE`.
+Shells spawned by Electron-based tools (for example a VS Code extension host) export it, and
+it makes any Electron app, JLCONE included, start as plain Node and quit. Launch with
+`env -u ELECTRON_RUN_AS_NODE open -a JLCONE` instead.
 
 What to change when something differs:
 
