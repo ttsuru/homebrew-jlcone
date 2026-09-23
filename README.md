@@ -1,5 +1,24 @@
 # homebrew-jlcone
 
+> [!IMPORTANT]
+> **This tap is archived.** `jlcone` is now in the official Homebrew cask repository
+> ([Homebrew/homebrew-cask#288488](https://github.com/Homebrew/homebrew-cask/pull/288488), merged 2026-09-20),
+> so no third-party tap is needed any more:
+>
+> ```sh
+> brew install --cask jlcone
+> ```
+>
+> If you installed from this tap, switch with:
+>
+> ```sh
+> brew untap ttsuru/jlcone
+> brew reinstall --cask jlcone
+> ```
+>
+> Version bumps and bug reports go to [Homebrew/homebrew-cask](https://github.com/Homebrew/homebrew-cask).
+> The content below is kept for reference only.
+
 [![tests](https://github.com/ttsuru/homebrew-jlcone/actions/workflows/tests.yml/badge.svg)](https://github.com/ttsuru/homebrew-jlcone/actions/workflows/tests.yml)
 
 An unofficial [Homebrew](https://brew.sh/) tap for [JLCONE](https://jlcone.com/download), JLCPCB's
